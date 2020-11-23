@@ -1,0 +1,480 @@
+{% extends 'users/base1.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+<style type="text/css">
+.label{
+    color: black !important;
+}
+</style>
+
+
+
+
+
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+         
+           
+
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+
+        <div class="wrapper wrapper--w680">
+                <div class="login-logo ">
+    <div class="container">
+    <a style="margin-left: -10%;"    href="#"><img src="{% static 'img/viclogo.png' %}" width="150px" height="40%"></a>
+     </div>
+  </div>
+   
+
+            <div class="card card-4">
+
+
+
+                <div class="card-body">
+             <div class="p-3 mb-2 bg-primary " style=" min-height: 35px;"> <h2 style=" text-align: center; font-size: 23px;" >MEMBER REGISTRATION FORM</h2></div>
+<br>
+                    
+                    <form method="POST" enctype="multipart/form-data">
+                  
+                        {% csrf_token %}
+
+
+                         <div class="row row-space">
+                   
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">FIRST NAME:</label>
+                                    {% render_field form.first_name class="input--style-4" placeholder="enter first name" %}
+
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SURNAME:</label>
+                                    {% render_field form.surname class="input--style-4" placeholder="enter surname" %}
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">PHONE NUMBER:</label>
+                                    {% render_field form.phone class="input--style-4" placeholder="enter phone number" %}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">EMAIL:</label>
+                                     {% render_field form.email class="input--style-4" placeholder="enter email" %}
+                                </div>
+                            </div>
+                        </div>
+
+
+                      
+                       
+                         <div class="row row-space">
+                   
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DATE OF BIRTH:</label>
+                                    {% render_field form.dob class="input--style-4" placeholder="enter date of birth" %}
+
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">AGE:</label>
+                                    {% render_field form.age class="input--style-4" placeholder="enter age" %}
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">FORMER RELIGION:</label>
+                                    {% render_field form.former_religion class="input--style-4" placeholder="enter former religion" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">L.C.1 / VILLAGE:</label>
+                                    {% render_field form.lc1_village class="input--style-4 " placeholder="enter L.C.1 / village" %}
+                    
+                                    </div>
+                                </div>
+                            </div>
+                           
+                     
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">ZONE:</label>
+                                    {% render_field form.zone class="input--style-4" placeholder="enter zone" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SUB-COUNTY / GOMBOLOLA:</label>
+                                    {% render_field form.lc3_subcounty class="input--style-4 " placeholder="enter L.C.3 / subcounty" %}
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+                    
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN BORN AGAIN?:</label>
+                                    {% render_field form.born_again class="input--style-4" placeholder="enter approximate dates" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN SPIRIT FILLED?:</label>
+                                   {% render_field form.spirit_filled class="input--style-4 " placeholder="enter approximate dates" %}
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+
+               
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN BAPTISED IN WATER?:</label>
+                                    {% render_field form.baptised class="input--style-4 " placeholder="enter Approximate Dates" %}
+                    
+                                </div>
+                            </div>
+                        
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">PASSPORT PHOTO:</label>
+                                    {% render_field form.photo class="input--style-4 " placeholder="upload photo" %}
+                    
+                                    </div>
+                                </div>
+
+                            </div>
+                                    <div class="input-group">
+                            <p align="center"><label class="label">HIGHEST LEVEL OF EDUCATION</label></p>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="highest_level_of_education">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option>None</option>
+                                    <option>P.L.E (Primary)</option>
+                                    <option>U.C.E (O' Level)</option>
+                                    <option>U.A.C.E (A' Level)</option>
+                                    <option>Tertiary </option>
+                                    <option>Graduate</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">OCCUPATION?:</label>
+                                    {% render_field form.occupation class="input--style-4" placeholder="enter occupation" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">PLACE OF WORK?:</label>
+                                   {% render_field form.place_of_work class="input--style-4 " placeholder="enter place of work" %}
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+                  
+  <div class="input-group">
+                            <p align="center"><label class="label">MARITAL STATUS</label></p>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="marital_status">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Separated</option>
+                                    <option>Divorced</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                         <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                      <label class="label">ANY CHILDREN?:</label>
+                                    <div class="rs-select2 js-select-simple select--no-search" >
+                                <select name="any_children">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">HOW MANY CHILDREN?:</label>
+                                   {% render_field form.number_of_children class="input--style-4 " placeholder="enter number of children" %}
+                    
+                                    </div>
+                                </div>
+                        
+             <div class="p-3 mb-2 bg-primary " style=" min-height: 35px;"> <h2 style=" text-align: center; font-size: 20px;" >FAMILY DETAILS</h2></div>
+         </div>
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">FATHER'S NAME?:</label>
+                                    {% render_field form.father_name class="input--style-4" placeholder="enter father name" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">MOTHER'S NAME?:</label>
+                                   {% render_field form.mother_name class="input--style-4 " placeholder="enter mother name" %}
+                    
+                                    </div>
+                                </div>
+                </div>
+
+                  <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Father Alive?:</label>
+                                    <div class="rs-select2 js-select-simple select--no-search" >
+                                <select name="father_alive">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                   <label class="label">Mother Alive?:</label>
+                                    <div class="rs-select2 js-select-simple select--no-search" >
+                                <select name="mother_alive">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                    
+                                    </div>
+                                </div>
+
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">HOME AREA: L.C.1</label>
+                                    {% render_field form.home_lc1 class="input--style-4" placeholder="enter home l.c.1" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">VILLAGE:</label>
+                                    {% render_field form.home_village class="input--style-4 " placeholder="enter home village" %}
+                    
+                                    </div>
+                                </div>
+                            </div>
+                           
+                     
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DISTRICT:</label>
+                                    {% render_field form.home_district class="input--style-4" placeholder="enter district" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SUB-COUNTY / GOMBOLOLA:</label>
+                                    {% render_field form.lc3_subcounty class="input--style-4 " placeholder="enter L.C.3 / subcounty" %}
+                    
+                                    </div>
+                             
+                            </div>
+                        </div>
+                        <br>
+                            
+                     <div class="input-group">
+                             <div class="p-3 mb-2 bg-primary " style=" min-height: 35px;"> <h2 style=" text-align: center; font-size: 20px;" >DEPARTMENT</h2></div>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="department">
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option>None</option>
+                                    <option>Minister</option>
+                                    <option>Mass Chior</option>
+                                    <option>Instrumentalist</option>
+                                    <option>Hospitality</option>
+                                    <option>Media</option>
+                                    <option>Church Elder</option>
+                                    <option>Victory Men</option>
+                                    <option>Victory Women</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                         <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DEPARTMENT'S HEAD NAME?:</label>
+                                    {% render_field form.head_name class="input--style-4" placeholder="enter department head" %}
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DEPARTMEN'S HEAD NUMBER?:</label>
+                                   {% render_field form.head_number class="input--style-4 " placeholder="enter head number" %}
+                    
+                                    </div>
+                                </div>
+                                </div>
+              
+
+        
+       
+
+ 
+
+                        <div class="row row-space">
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Other Notes:</label>
+                                     {% render_field form.other_notes class="input--style-4"  style="line-height: 150px;" placeholder="enter other notes" %}
+                                </div>
+                            </div>
+                           <div class="col-2">
+                            
+                                  <label class="label">Registration Date:</label>
+                                    <div class="input-group-icon">
+                                         {% render_field form.registration_date class="input--style-4 js-datepicker" placeholder="choose date" %}
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+
+                            <br>
+                            
+                                  
+                        
+                        </div>
+                    </div>
+
+
+
+                           
+
+
+
+                              
+                         
+                
+                 
+
+               
+              
+                       
+
+                    
+      
+            <!-- END FORM 6 -->
+                        <div class="p-t-15" align="center">
+                          <button class="btn btn--radius-2 btn--blue" type="submit" value="submit">Submit</button>
+                        </div>
+                    </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}
+{% block custom_js %}
+<script>
+    $(document).ready(function(){
+        $("#id_email").keyup(function(){
+            var email=$(this).val();
+
+           if(email!=""){
+                $.ajax({
+                    url:'{% url 'check_email_exist' %}',
+                    type:'POST',
+                    data:{email:email}
+                })
+                .done(function(response){
+                    console.log(response);
+                    if(response=="True"){
+                        $(".email_error").remove();
+                        $("<span class='email_error' style='padding: 5px;color: red;font-weight: bold;'>Email Not Available</span>").insertAfter("#id_email");
+                    }
+                    else{
+                        $(".email_error").remove();
+                        $("<span class='email_error' style='padding: 5px;color: green;font-weight: bold;'>Email Available</span>").insertAfter("#id_email");
+                    }
+                })
+                .fail(function(){
+                    console.log("failed");
+                })
+            }
+            else{
+              $(".email_error").remove();
+            }
+
+        });
+
+        $("#id_phone").keyup(function(){
+            var phone=$(this).val();
+
+            if(phone!=""){
+                $.ajax({
+                    url:'{% url 'check_phone_exist' %}',
+                    type:'POST',
+                    data:{phone:phone}
+                })
+                .done(function(response){
+                    console.log(response);
+                    if(response=="True"){
+                        $(".phone_error").remove();
+                        $("<span class='phone_error' style='padding: 5px;color: red;font-weight: bold;'>phone Not Available</span>").insertAfter("#id_phone");
+                    }
+                    else{
+                        $(".phone_error").remove();
+                        $("<span class='phone_error' style='padding: 5px;color: green;font-weight: bold;'>phone Available</span>").insertAfter("#id_phone");
+                    }
+                })
+                .fail(function(){
+                    console.log("failed");
+                })
+            }
+            else{
+                $(".phone_error").remove();
+            }
+
+        });
+
+    });
+</script>
+{% endblock custom_js %}
+        </div>
+
+

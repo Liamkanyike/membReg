@@ -1,0 +1,163 @@
+$- ssh @root ip
+$- adduser sammy
+$- usermod -aG sudo sammy
+$- sudo apt update
+$- sudo apt install python3-pip python-dev libpq-dev postgresql postgresql-contrib nginx curl
+$- sudo -u postgres psql
+$- CREATE DATABASE branchchurchesdb;
+$- CREATE USER admin WITH PASSWORD 'password';
+$- ALTER ROLE admin SET client_encoding TO 'utf8';
+$- ALTER ROLE admin SET default_transaction_isolation TO 'read committed';
+$- ALTER ROLE admin SET timezone TO 'UTC';
+$- GRANT ALL PRIVILEGES ON DATABASE branchchurchesdb TO admin;
+$- \q
+$- sudo -H pip3 install virtualenv
+$- 
+$- su liamx
+
+$- mkdir ~/makanisa
+
+$- cd ~/makanisa
+$- virtualenv venv
+$- source venv/bin/activate
+$- 
+$- //// in Project folder install ////
+$- pip install django gunicorn psycopg2-binary
+$- pip freeze > requirements.txt
+$- commit to repository
+$- 
+$- git init
+$- git remote add origin https://github.com/Liamkanyike/makanisa.git
+$- git pull origin master
+$- pip install -r requirements.txt
+$-
+$- python manage.py migrate
+$- python manage.py createsuperuser
+$- python manage.py collectstatic
+$- sudo ufw allow 8000
+$- python manage.py runserver 0.0.0.0:8000
+$- gunicorn --bind 0.0.0.0:8000 makanisa.wsgi
+$- deactivate
+$-
+
+
+
+ How To Deploy a Django App To apache2 Server On Ubuntu 20.04 LTS Desktop
+Video Tutorial - https://youtu.be/iXLQe2QF9LA
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Django is a Python-based free and open-source web framework, which follows the model-template-view architectural pattern. It is maintained by the Django Software Foundation, an independent organization established as a 501 non-profit. Django's primary goal is to ease the creation of complex, database-driven websites.
+
+Apache Web Server is designed to create web servers that have the ability to host one or more HTTP-based websites.
+Offcial Website -https://www.djangoproject.com/
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Our Server Specification:-
+Os : Ubuntu 20.04 LTS (focal fossa) 64Bit   |  Hostname: www.yourdomain.com   |   IP Address of Server:192.168.1.50
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+lsb_release -cd  ; getconf LONG_BIT ; hostname ; hostname -I && sudo apt install -y build-essential net-tools curl git software-properties-common apache2 libapache2-mod-wsgi-py3 python3-django
+
+sudo a2enmod wsgi
+sudo a2dissite 000-default ; sudo systemctl restart apache2 ; sudo systemctl reload apache2 ; sudo systemctl status  apache2
+
+sudo adduser oj
+sudo usermod --lock oj ; sudo mkdir /home/oj/grouped
+sudo chmod u=rwx,g=srwx,o=x /home/oj/grouped ; sudo chown -R oj.oj /home/oj/
+sudo find /home/oj/grouped/ -type f -exec chmod -v ug=rw {} \; && sudo find /home/oj/grouped/ -type d -exec chmod -v u=rwx,g=srwx {} \;
+sudo adduser $(whoami) oj ; newgrp oj
+
+sudoedit /etc/apache2/sites-available/oj.conf
+<VirtualHost *:80>
+ ServerName www.yourdomain.com
+ WSGIDaemonProcess oj user=oj group=oj threads=5 python-path="/home/oj/grouped/ojexamplecom/"
+ WSGIScriptAlias / /home/oj/grouped/ojexamplecom/ojexamplecom/wsgi.py
+ <Directory /home/oj/grouped/ojexamplecom/>
+     WSGIProcessGroup oj
+     WSGIApplicationGroup %{GLOBAL}
+     WSGIScriptReloading On
+     Require all granted
+ </Directory>
+ </VirtualHost>
+sudo a2ensite oj
+cd /home/oj/grouped/ ; django-admin startproject ojexamplecom
+nano ojexamplecom/ojexamplecom/settings.py
+'127.0.0.1', 'www.yourdomain.com'
+sudo service apache2 restart
+
+
+
+\*** FOLDER PERMISIONS ****\
+sudo chown :www-data makanisa/
+sudo chown -R :www-data makanisa/media/
+sudo chmod -R 775 makanisa/media
+sudo ufw allow http/tcp
+sudo chown -R liamx makanisa/
+
+
+
+
+
+
+
+
+
+\*** APACHE2 SSL CERTIFICATE ****\
+https://certbot.eff.org/lets-encrypt/ubuntufocal-apache
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+
+sudo nano /etc/apache2/sites-available/liamx.conf
+    #comment out WSG
+<VirtualHost *:80>
+ ServerName www.victorybranchchurches.org
+ ServerAlias victorybranchchurches.org
+ #WSGIDaemonProcess liamx user=liamx group=liamx threads=5 python-path="/home/liamx/grouped/makanisa/"
+ #WSGIScriptAlias / /home/liamx/grouped/makanisa/makanisa/wsgi.py
+ <Directory /home/liamx/grouped/makanisa/>
+     WSGIProcessGroup liamx
+     WSGIApplicationGroup %{GLOBAL}
+     WSGIScriptReloading On
+     Require all granted
+ </Directory>
+ </VirtualHost>
+
+sudo certbot --apache
+
+sudo nano /etc/apache2/sites-available/liamx.conf
+#Delete WSG and <Directory>
+
+sudo nano /etc/apache2/sites-available/liamx-le-ssl.conf
+#Uncomment out WSG
+
+\** CERTIFICATE AUTO RENEW **\
+sudo certbot renew --dry-run
+sudo crontab -e
+30 4 1 * * sudo certbot renew --quiet
+
+
+
+\** NGINX TRIAL **\
+Fix Static File(CSS, JavaScript, Image) Error in Django Production with Nginx
+
+
+
+
+\**SERVING MEDIA FILES **\
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+ ServerName www.victorybranchchurches.org
+ ServerAlias victorybranchchurches.org
+
+
+ Alias /media/ /home/liamx/grouped/makanisa/media/
+
+<Directory /home/liamx/grouped/makanisa/media/>
+Order deny,allow
+Allow from all
+</Directory>
+
+</VirtualHost>
+</IfModule>
+
+
+

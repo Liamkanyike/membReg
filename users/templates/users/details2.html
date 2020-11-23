@@ -1,0 +1,388 @@
+{% load static %}
+ <head>
+         <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style type="text/css">
+ /* Style buttons */
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 0.1px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+} 
+
+.btn2 {
+  background-color: #2c3e50;
+  border: none;
+  color: white;
+  padding: 15px 70px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn2:hover {
+  background-color: RoyalBlue;
+} 
+.label{
+    color: #2980B9 !important;
+}
+    </style>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+
+        <div class="wrapper wrapper--w680">
+    <div class="login-logo ">
+    <div class="container">
+    <a style="margin-left: 40%;"    href="#"><img src="{% static 'img/viclogo.png' %}" width="150px" height="80px"></a>
+     </div>
+  </div>
+            <div class="card card-4">
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                <div class="card-body">
+
+
+                    <div class="container">
+                         <p align="center"><label class="label"> </label></p>
+                     
+                        <p align="center"> <img src="{{ church.photo.url }}" name="photo" width="150"></p>
+                    </div>
+
+<br>
+             <div class="p-3 mb-2 bg-primary " style="background-color: #463f4b !important; min-height: 30px;"> <h2 style="color: white; text-align: center; font-size: 23px;" >{{ church.surname }} {{ church.first_name }}</h2></div>
+<br>
+                    
+                    <form>
+                    
+                        {% csrf_token %}
+
+
+                         <div class="row row-space">
+                   
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">FIRST NAME:</label>
+                                   {{ church.first_name }}
+
+                                </div>
+                            </div>
+                           
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SURNAME:</label>
+                                    {{ church.surname }}
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">PHONE NUMBER:</label>
+                                    {{ church.phone }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">EMAIL:</label>
+                                    {{ church.email }}
+                                </div>
+                            </div>
+                        </div>
+
+                               <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">DATE OF BIRTH:</label>
+                                    {{ church.dob }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">AGE:</label>
+                                    {{ church.age }}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                 <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">FORMER RELIGION:</label>
+                                    {{ church.former_religion }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">L.C.1 / VILLAGE:</label>
+                                    {{ church.lc1_village }}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                 <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">ZONE:</label>
+                                {{ church.lc2_muluka }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SUB-COUNTY / GOMBOLOLA:</label>
+                                    {{ church.lc3_subcounty }}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                 <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">WHEN BORN AGAIN:</label>
+                                    {{ church.born_again }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN SPIRIT FILLED:</label>
+                                    {{ church.spirit_filled }}
+                                </div>
+                            </div>
+                        </div>
+
+
+                 <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">WHEN BAPTISED IN WATER:</label>
+                                    {{ church.baptised }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">MARITAL STATUS:</label>
+                           {{ church.marital_status }}
+                        </div>
+          
+                            </div>
+                        </div>  
+
+                       
+              
+
+
+             <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">HIGHEST LEVEL OF EDUCATION:</label>
+                                    {{ church.highest_level_of_education }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">OCCUPATION:</label>
+                           {{ church.occupation }}
+                        </div>
+          
+                            </div>
+                        </div>  
+
+                        <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">PLACE OF WORK:</label>
+                                    {{ church.place_of_work }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">ANY CHILDREN?:</label>
+                           {{ church.any_children }}
+                        </div>
+          
+                            </div>
+                        </div> 
+
+
+                        <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">NUMBER OF CHILDREN:</label>
+                                    {{ church.number_of_children }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">DISTRICT:</label>
+                           {{ church.district }}
+                        </div>
+          
+                            </div>
+                        </div>   
+
+                        <br>
+
+                            <div class="p-3 mb-2 bg-primary " style="background-color: #463f4b !important; min-height: 30px;"> <h2 style="color: white; text-align: center; font-size: 23px;" >FAMILY DETAILS</h2></div>
+                      <br>
+
+
+
+                          <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">FATHER'S NAME:</label>
+                                    {{ church.father_name }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">MOTHER'S NAME:</label>
+                           {{ church.mother_name }}
+                        </div>
+          
+                            </div>
+                        </div>   
+
+
+                         <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">Father Alive?:</label>
+                                    {{ church.father_alive }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">Mother Alive?:</label>
+                           {{ church.mother_alive }}
+                        </div>
+          
+                            </div>
+                        </div>   
+
+                         <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">HOME AREA L.C.1:</label>
+                                    {{ church.home_lc1 }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">HOME VILLAGE:</label>
+                           {{ church.home_village }}
+                        </div>
+          
+                            </div>
+                        </div> 
+
+                                  <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">HOME DISTRICT:</label>
+                                    {{ church.home_district }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">SUB-COUNTY / GOMBOLOLA:</label>
+                           {{ church.home_subcounty }}
+                        </div>
+          
+                            </div>
+                        </div>   
+
+
+                             <br>
+
+                            <div class="p-3 mb-2 bg-primary " style="background-color: #463f4b !important; min-height: 30px;"> <h2 style="color: white; text-align: center; font-size: 23px;" >DEPARTMENT</h2></div>
+                      <br>
+
+
+
+                        <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">DEPARTMENT NAME:</label>
+                                    {{ church.department }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">DEPARTMENT'S HEAD NAME:</label>
+                           {{ church.head_name }}
+                        </div>
+          
+                            </div>
+                        </div>   
+
+                         <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">DEPARTMENT'S HEAD NUMBER:</label>
+                                    {{ church.head_number }}
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                            <label class="label">DATE JOINED:</label>
+                           {{ church.registration_date }}
+                        </div>
+          
+                            </div>
+                        </div>   
+
+
+        
+                         
+                    </form>
+                    <div class="p-t-15" align="center">
+                          <a href="/pdf/{{ church.id }}"><button type="button" class="btn2 btn-success"><i class="fa fa-print" aria-hidden="true"></i>
+Print Document</button></a>
+                        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+

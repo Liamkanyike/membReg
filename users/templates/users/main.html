@@ -1,0 +1,213 @@
+{% extends 'users/base2.html' %}
+{% load static %}
+
+
+{% block content %}
+ 
+             <!-- HEADER DESKTOP-->
+        <header class="header-desktop4">
+            <div class="container">
+                <div class="header4-wrap">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="{% static 'img/viclogo.png' %}" width="150px" height="40%" alt="VictoryChurch" />
+                        </a>
+                    </div>
+                            <div class="header__navbar">
+                        <ul class="list-unstyled">
+                        
+                            <li>
+                                <a href="#">
+                                  
+                                    <span class="bot-line"></span></a>
+                            </li>
+                            <li>
+                                <a href="table.html">
+                                    
+                                    <span class="bot-line"></span></a>
+                            </li>
+                            <li class="has-sub">
+                                <a href="/">
+                                   
+                                    <span class="bot-line"></span>Home</a>
+                          
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">
+                                    
+                                    <span class="bot-line"></span>Logout</a>
+                            
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER DESKTOP -->
+
+        <!-- WELCOME-->
+        <section class="welcome2 p-t-40 p-b-55">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="au-breadcrumb3">
+                            <div class="au-breadcrumb-left">
+                                <span class="au-breadcrumb-span">You are here:</span>
+                                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    <li class="list-inline-item active">
+                                        <a href="#">View</a>
+                                    </li>
+                                    <li class="list-inline-item seprate">
+                                        <span>/</span>
+                                    </li>
+                                    <li class="list-inline-item">Manage Churches</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="welcome2-inner m-t-60">
+                            <div class="welcome2-greeting">
+                                <h1 class="title-6">
+                                    &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Manage Churches</span></h1>
+                                <p></p>
+                            </div>
+                            <form class="form-header form-header2" id="search" action="{% url 'search' %}">
+                                <input class="au-input au-input--w435" type="text" name="q" placeholder="Search by phone or surname...">
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WELCOME-->
+        <br>
+                    <!-- WELCOME-->
+            <section class="welcome p-t-10">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="title-4" align="center">List Of Registered Churches
+                                <span></span>
+                            </h1>
+                            <hr class="line-seprate">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END WELCOME-->
+
+  
+     <br>
+     <br>
+                            
+                                <!-- DATA TABLE -->
+
+
+                                <div class="col-md-12">
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                      
+                                       
+                                       
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                               <a href="/reg"> <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>REGISTER CHURCH</button></a>
+                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                        <a href="/"> <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                        Home</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                        <div class="row m-t-30">
+                           <div class="col-md-12">
+                              {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                    <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                                    {% endif %}
+
+                                    {% if message.tags == 'success' %}
+                                    <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                                    {% endif %}
+
+                                {% endfor %}
+                              </div>
+                              {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Church ID</th>
+                                                <th>Church Name</th>
+                                                <th>Pastor's Name</th>
+                                                <th>Contact</th>
+                                                <th>Address</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {% for church in object_list %}
+                                            <tr>
+                                                <td>{{ church.id }}</td>
+                                                <td>{{ church.name_of_church }}</td>
+                                                <td>{{ church.surname }}</td>
+                                                <td>{{ church.phone }}</td>
+                                                <td>{{ church.church_district }}</td>
+                                                
+                                                 <td>
+                                                    <div class="table-data-feature">
+                                                    
+                                                        <a href="/edit/{{ church.id }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button></a>
+
+                                                
+                                                        <a href="/delete/{{ church.id }}"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button></a>
+                                                    
+
+
+                                                   <a href="/details/{{ church.id }}"><button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+
+                                                        </button></a>
+
+
+
+                                                        <a href="{% url 'church-pdf-view' church.pk %}"><button class="item" data-toggle="tooltip" data-placement="top" title="PDF">
+                                                            <i class="zmdi zmdi-print"></i>
+                                                        </button></a>
+                                                    </div>
+                                                </td>
+      
+                                            </tr>
+                                            {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                         </div>
+                     </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% endblock content %}

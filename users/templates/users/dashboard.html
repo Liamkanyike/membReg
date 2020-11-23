@@ -1,0 +1,175 @@
+{% extends 'users/base2.html' %}
+{% load static %}
+
+{% block content %}
+
+ <div class="page-wrapper">
+             <!-- HEADER DESKTOP-->
+        <header class="header-desktop4">
+            <div class="container">
+                <div class="header4-wrap">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="{% static 'img/viclogo.png' %}" width="150px" height="40%" alt="VictoryChurch" />
+                        </a>
+                    </div>
+                            <div class="header__navbar">
+                        <ul class="list-unstyled">
+                        
+                            <li>
+                                <a href="#">
+                                  
+                                    <span class="bot-line"></span></a>
+                            </li>
+                            <li>
+                                <a href="table.html">
+                                    
+                                    <span class="bot-line"></span></a>
+                            </li>
+                            <li class="has-sub">
+                                <a href="/view">
+                                   
+                                    <span class="bot-line"></span>Members</a>
+                          
+                            </li>
+                            <li class="has-sub">
+                                <a href="/logout">
+                                    
+                                    <span class="bot-line"></span>Logout</a>
+                            
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER DESKTOP -->
+
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+            <br>
+   
+    
+
+
+<br>
+
+
+           
+            <!-- DATA TABLE-->
+            <section class="p-t-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                             <div class="title-5 m-b-40" style="position: center; font-size: 50px;">VICTORY MEMBERSHIP REGISTRATION</div>
+
+
+                                   <!-- STATISTIC-->
+            <section class="statistic statistic2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="statistic__item statistic__item--green">
+                                <h2 class="number">{{ church_count }}</h2>
+                                <br>
+                                <br>
+                                <span class="desc">Total Members Registered So Far</span>
+                                <div class="icon">
+                                    <i class="zmdi zmdi-account-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                           
+
+                    </div>
+                </div>
+            </section>
+            <!-- END STATISTIC-->
+
+                           
+                            <hr class="line-seprate">
+                            <br>
+
+                            <div class="table-data__tool">
+
+                                <div class="table-data__tool-left">
+                                    
+                                    <div class="rs-select2--light rs-select2--md">
+                                        
+                                        
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                    <div class="rs-select2--light rs-select2--sm">
+                                        
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                   
+                                </div>
+                            
+                            
+                                <div class="table-data__tool-right">
+                                    <a href="/reg"> <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>REGISTER NEW MEMBER</button></a>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                    <a href="/view"> <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                       </i>SEARCH FOR A MEMBER</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                             <h3 class="title-5 m-b-35">Most Recent Registration</h3>
+                               <div class="col-md-12">
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Member ID</th>
+                                                <th>First Name</th>
+                                                <th>Surname</th>
+                                                <th>Contact</th>
+                                                <th>Address</th>
+                                                <th>Date Joined</th>
+                                              
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {% for church in church %}
+                                            <tr>
+                                                <td>{{ church.id }}</td>
+                                                <td>{{ church.first_name }}</td>
+                                                <td>{{ church.surname }}</td>
+                                                <td>{{ church.phone }}</td>
+                                                <td>{{ church.residential_address }}</td>
+                                                <td>{{ church.registration_date }}</td>
+                                                
+                           
+                                            {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                         </div>
+
+
+                         <br>
+                         <br>
+                          <br>
+                         <br>
+
+                          
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br>
+            <br>
+            <br>
+            <!-- END DATA TABLE-->
+{% include 'users/footer2.html' %}
+
+
+{% endblock content %}

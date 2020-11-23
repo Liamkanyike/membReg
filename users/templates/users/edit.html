@@ -1,0 +1,427 @@
+{% extends 'users/base1.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+<style type="text/css">
+.label{
+    color: blue !important;
+}
+</style>
+
+
+
+
+
+        <!-- PAGE CONTENT-->
+        <div class="page-content--bgf7">
+         
+           
+
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+
+        <div class="wrapper wrapper--w680">
+                <div class="login-logo ">
+    <div class="container">
+    <a style="margin-left: -10%;"    href="#"><img src="{% static 'img/viclogo.png' %}" width="150px" height="40%"></a>
+     </div>
+  </div>
+   
+
+            <div class="card card-4">
+
+
+
+                <div class="card-body">
+             <div class="p-3 mb-2 bg-primary " style=" min-height: 35px;"> <h2 style=" text-align: center; font-size: 23px;" >EDIT MEMBER FORM</h2></div>
+<br>
+                    
+                    <form method="POST" action="/update/{{ church.id }}" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="id"  required maxlength="20" value="{{ church.id }}"/>
+                  
+                        {% csrf_token %}
+
+
+                         <div class="row row-space">
+                   
+                            <div class="col-2">
+                                <div class="input-group">
+                                   <label class="label">FIRST NAME:</label>
+                                   <input type="text" name="first_name" value="{{ church.first_name }}">
+
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SURNAME:</label>
+                                     <input type="text" name="surname" value="{{ church.surname }}">
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="row row-space">
+
+                            <div class="col-2">
+                                 <div class="input-group">
+                                    <label class="label">PHONE NUMBER:</label>
+                                     <input type="text" name="phone" value="{{ church.phone }}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">EMAIL:</label>
+                                     <input type="email" name="email" value="{{ church.email }}">
+                                </div>
+                            </div>
+                        </div>
+
+
+                      
+                       
+                         <div class="row row-space">
+                   
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DATE OF BIRTH:</label>
+                                    <input type="text" name="dob" value="{{ church.dob }}">
+
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">AGE:</label>
+                                    <input type="text" name="age" value="{{ church.age }}">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">FORMER RELIGION:</label>
+                                     <input type="text" name="former_religion" value="{{ church.former_religion }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">L.C.1 / VILLAGE:</label>
+                                    <input type="text" name="lc1_village" value="{{ church.lc1_village }}">
+                    
+                                    </div>
+                                </div>
+                            </div>
+                           
+                     
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">ZONE:</label>
+                                     <input type="text" name="zone" value="{{ church.zone }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SUB-COUNTY / GOMBOLOLA:</label>
+                                    <input type="text" name="lc3_subcounty" value="{{ church.lc3_subcounty }}">
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+                    
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN BORN AGAIN?:</label>
+                                    <input type="text" name="born_again" value="{{ church.born_again }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN SPIRIT FILLED?:</label>
+                                    <input type="text" name="spirit_filled" value="{{ church.spirit_filled }}">
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+
+               
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">WHEN BAPTISED IN WATER?:</label>
+                                    <input type="text" name="baptised" value="{{ church.baptised }}">
+                    
+                                </div>
+                            </div>
+                        
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">PASSPORT PHOTO:</label>
+                                    <br><p style="color:Red;">upload:  .jpg,  .jpeg,  .png.  formats only</p></label>
+                                   <input type="file" name="photo" value="{{ church.photo }}">
+                    
+                                    </div>
+                                </div>
+
+                            </div>
+                                    <div class="input-group">
+                            <p align="center"><label class="label">HIGHEST LEVEL OF EDUCATION</label></p>
+                           <input type="text" name="highest_level_of_education" value="{{ church.highest_level_of_education }}">
+                        </div>
+
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">OCCUPATION?:</label>
+                                    <input type="text" name="occupation" value="{{ church.occupation }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">PLACE OF WORK?:</label>
+                                   <input type="text" name="place_of_work" value="{{ church.place_of_work }}">
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+                  
+                            <div class="input-group">
+                            <p align="center"><label class="label">MARITAL STATUS</label></p>
+                            <input type="text" name="marital_status" value="{{ church.marital_status }}">
+                        </div>
+                         <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                      <label class="label">ANY CHILDREN?:</label>
+                                   <input type="text" name="any_children" value="{{ church.any_children }}">
+                        </div>
+                    </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">HOW MANY CHILDREN?:</label>
+                                   <input type="text" name="number_of_children" value="{{ church.number_of_children }}">
+                    
+                                    </div>
+                                </div>
+                        
+             <div class="p-3 mb-2 bg-primary " style=" min-height: 35px;"> <h2 style=" text-align: center; font-size: 20px;" >FAMILY DETAILS</h2></div>
+         </div>
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">FATHER'S NAME?:</label>
+                                    <input type="text" name="father_name" value="{{ church.father_name }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">MOTHER'S NAME?:</label>
+                                  <input type="text" name="mother_name" value="{{ church.mother_name }}">
+                    
+                                    </div>
+                                </div>
+                </div>
+
+                  <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Father Alive?:</label>
+                                   <input type="text" name="father_alive" value="{{ church.father_alive }}">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                   <label class="label">Mother Alive?:</label>
+                                    <input type="text" name="mother_alive" value="{{ church.mother_alive }}">
+                                </div>
+                            </div>
+                        </div>
+                    
+                             
+
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">HOME AREA: L.C.1</label>
+                                    <input type="text" name="home_lc1" value="{{ church.home_lc1 }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">HOME VILLAGE:</label>
+                                    <input type="text" name="home_village" value="{{ church.home_village }}">
+                    
+                                    </div>
+                                </div>
+                            </div>
+                           
+                     
+                     <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">HOME DISTRICT</label>
+                                    <input type="text" name="home_district" value="{{ church.home_district }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">SUBCOUNTY / GOMBOLOLA:</label>
+                                    <input type="text" name="home_subcounty" value="{{ church.home_subcounty }}">
+                    
+                                    </div>
+                                </div>
+                            </div>
+                        <br>
+                            
+                     <div class="input-group">
+                             <div class="p-3 mb-2 bg-primary " style=" min-height: 35px;"> <h2 style=" text-align: center; font-size: 20px;" >DEPARTMENT</h2></div>
+                            <input type="text" name="department" value="{{ church.department }}">
+                        </div>
+                         <div class="row row-space">
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DEPARTMENT'S HEAD NAME?:</label>
+                                   <input type="text" name="head_name" value="{{ church.head_name }}">
+                                </div>
+                            </div>
+                        <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DEPARTMEN'S HEAD NUMBER?:</label>
+                                   <input type="text" name="head_number" value="{{ church.head_number }}">
+                    
+                                    </div>
+                                </div>
+                                </div>
+              
+
+        
+       
+
+ 
+
+                        <div class="row row-space">
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Other Notes:</label>
+                                     <input type="text" name="other_notes" value="{{ church.other_notes }}">
+                                </div>
+                            </div>
+                           <div class="col-2">
+                            
+                                  <label class="label">Registration Date:</label>
+                                    <div class="input-group-icon">
+                                         <input type="text" name="registration_date" value="{{ church.registration_date }}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+
+                            <br>
+                            
+                                  
+                        
+                        </div>
+                    </div>
+
+
+
+                           
+
+
+
+                              
+                         
+                
+                 
+
+               
+              
+                       
+
+                    
+      
+            <!-- END FORM 6 -->
+                        <div class="p-t-15" align="center">
+                          <button class="btn btn--radius-2 btn--green" type="submit" value="submit">Save</button>
+                        </div>
+                    </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}
+{% block custom_js %}
+<script>
+    $(document).ready(function(){
+        $("#id_email").keyup(function(){
+            var email=$(this).val();
+
+           if(email!=""){
+                $.ajax({
+                    url:'{% url 'check_email_exist' %}',
+                    type:'POST',
+                    data:{email:email}
+                })
+                .done(function(response){
+                    console.log(response);
+                    if(response=="True"){
+                        $(".email_error").remove();
+                        $("<span class='email_error' style='padding: 5px;color: red;font-weight: bold;'>Email Not Available</span>").insertAfter("#id_email");
+                    }
+                    else{
+                        $(".email_error").remove();
+                        $("<span class='email_error' style='padding: 5px;color: green;font-weight: bold;'>Email Available</span>").insertAfter("#id_email");
+                    }
+                })
+                .fail(function(){
+                    console.log("failed");
+                })
+            }
+            else{
+              $(".email_error").remove();
+            }
+
+        });
+
+        $("#id_phone").keyup(function(){
+            var phone=$(this).val();
+
+            if(phone!=""){
+                $.ajax({
+                    url:'{% url 'check_phone_exist' %}',
+                    type:'POST',
+                    data:{phone:phone}
+                })
+                .done(function(response){
+                    console.log(response);
+                    if(response=="True"){
+                        $(".phone_error").remove();
+                        $("<span class='phone_error' style='padding: 5px;color: red;font-weight: bold;'>phone Not Available</span>").insertAfter("#id_phone");
+                    }
+                    else{
+                        $(".phone_error").remove();
+                        $("<span class='phone_error' style='padding: 5px;color: green;font-weight: bold;'>phone Available</span>").insertAfter("#id_phone");
+                    }
+                })
+                .fail(function(){
+                    console.log("failed");
+                })
+            }
+            else{
+                $(".phone_error").remove();
+            }
+
+        });
+
+    });
+</script>
+{% endblock custom_js %}
+        </div>
+
+

@@ -1,0 +1,222 @@
+{% extends 'users/base2.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+    
+
+
+        <!-- MENU SIDEBAR-->
+      
+       
+            
+            <br>
+         
+             <aside class="menu-sidebar d-none d-lg-block">
+                <div class="logo">
+                <a href="#">
+                            <img src="{% static 'img/viclogo.png' %}" width="150px" height="40%" alt="VictoryChurch" />
+                        </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                     
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                           
+                           
+                        </li>
+                       
+                        <li class="active">
+                            <a href="/dashboard">
+                                <i class="fas fa-table"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/reg">
+                                <i class="far fa-check-square"></i>Register</a>
+                        </li>
+                        <li>
+                            <a href="/logout">
+                                <i class="fas fa-calendar-alt"></i>Logout</a>
+                        </li>
+                       
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+          
+        <!-- END MENU SIDEBAR-->
+ 
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" id="search" action="{% url 'search' %}">
+                                <input class="au-input au-input--xl" type="text" name="q" placeholder="Search by phone or surname..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+
+               
+                          
+                                <div class="account-wrap">
+                              
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="/logout">Logout</a>
+                                        </div>
+                                        
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+           
+  
+     <br>
+     <br>
+      <br>
+     <br>
+      <br>
+     <br>
+     
+
+                            
+                                <!-- DATA TABLE -->
+
+
+                                <div class="col-md-12">
+                                    <h2 style="font-size: 50px;">VICTORY MEMBERSHIP DATABASE</h2>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                      
+                                       
+                                       
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                               <a href="/reg"> <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>REGISTER MEMBER</button></a>
+                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                        <a href="/dashboard"> <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                        Home</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                        <div class="row m-t-30">
+                           <div class="col-md-12">
+                              {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                    <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                                    {% endif %}
+
+                                    {% if message.tags == 'success' %}
+                                    <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                                    {% endif %}
+
+                                {% endfor %}
+                              </div>
+                              {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Member ID</th>
+                                                <th>First Name</th>
+                                                <th>Surname</th>
+                                                <th>Contact</th>
+                                                <th>Address</th>
+                                                <th>Date Joined</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {% for church in queryset %}
+                                            <tr>
+                                                <td>{{ church.id }}</td>
+                                                <td>{{ church.first_name }}</td>
+                                                <td>{{ church.surname }}</td>
+                                                <td>{{ church.phone }}</td>
+                                                <td>{{ church.residential_address }}</td>
+                                                 <td>{{ church.registration_date }}</td>
+                                                
+                                                 <td>
+
+
+                      
+                                    
+                                         <a href="/edit/{{ church.id }}"><input class="btn btn-success" type="submit" value="Edit">
+
+                                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="btn btn-primary" href="/details/{{ church.id }}" role="button">Details</a>
+
+                                          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+
+                                               
+                                                        <!-- Button trigger modal -->
+
+ <a><button class="btn btn-danger" data-toggle="modal" data-placement="top" data-target="#exampleModal">Delete</button></a>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are You Sure You Want To Delete This File?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size: 20px;">
+        This action can't be reversed, File will be lost Permanently
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="/delete/{{ church.id }}"><button type="button" class="btn btn-danger">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+                             
+                                                    
+                                                </td>
+      
+                                            </tr>
+                                            {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                                <br>
+                                <br>
+                                <br>
+                                <h1 align="center">Pagination</h1>
+                                <br>
+                                <br>
+                         </div>
+                     </div>
+                        
+                    </div>
+                </div>
+      {% endblock content %}
+
+

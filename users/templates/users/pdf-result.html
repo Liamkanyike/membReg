@@ -1,0 +1,497 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Output</title>
+	<title></title>
+
+
+	<style type="text/css">
+@page{
+    size:"A4";
+    margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+
+.pdfform{
+
+
+		background-color: #463f4b !important;
+		padding:8px 3px;
+		text-align: center;
+		
+}
+.thead{
+
+		background-color: #c1c1c1 !important;
+		padding-top: 5px 0px;
+		
+}
+
+img{
+
+    -webkit-transform:rotate(90deg); 
+    transform:rotate(90deg);
+}
+
+	</style>
+</head>
+<body>
+
+	
+				
+    
+     
+			
+			
+				 <div class="container">
+                         
+                     
+                         <p align="center"><img src="{{ church.photo.path }}" name="photo" width="100"></p>
+                    </div>
+
+<br>
+			<div class="pdfform">
+
+				<h1 style="color: white;  font-size: 15px; padding-top: 7px;">{{ church.surname }} {{ church.first_name }}</h1>
+			</div>
+
+			
+				<table>
+					<thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">FIRST NAME:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">SURNAME:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.first_name }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.surname }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">PHONE NUMBER:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">EMAIL:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.phone }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.email }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">DATE OF BIRTH:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">AGE:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.dob }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.age }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">FORMER RELIGION:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">L.C.1 / VILLAGE:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.former_religion }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.lc1_village }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">ZONE:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">SUB-COUNTY / GOMBOLOLA:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.zone }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.lc3_subcounty }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">WHEN BORN AGAIN:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">WHEN SPIRIT FILLED:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.born_again }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.spirit_filled }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">WHEN BAPTISED IN WATER:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">MARITAL STATUS:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.baptised }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.marital_status }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">HIGHEST LEVEL OF EDUCATION:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">OCCUPATION:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.highest_level_of_education }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.occupation }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+
+                          <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">PLACE OF WORK:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">ANY CHILDREN:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                        
+                  
+                          <tr>
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.place_of_work }}</td>
+                           
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.any_children }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">NUMBER OF CHILDREN:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">DISTRICT:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                        
+                  
+                          <tr>
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.number_of_children }}</td>
+                           
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.district }}</td>
+                           </tr>
+                                     
+                        </tbody>
+				</table>
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+                   <!-- FORM 4 -->
+
+					<div class="pdfform">
+
+				<h1 style="color: white;  font-size: 15px; padding-top: 7px;">FAMILY DETAILS</h1>
+			</div>
+
+		<table>
+					<thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">FATHER'S NAME:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">MOTHER'S NAME:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.father_name }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.mother_name }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">Father Alive?:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">Mother Alive?:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.father_alive }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.mother_alive }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">HOME AREA L.C.1:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">HOME VILLAGE:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.home_lc1 }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.home_village }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">HOME DISTRICT:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">SUB-COUNTY / GOMBOLOLA:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                     	
+                  
+                          <tr>
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.home_district }}</td>
+	                       
+	                        <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.home_subcounty }}</td>
+                           </tr>
+                                     
+                        </tbody>
+		
+				</table>
+
+
+
+
+<br>
+
+                   <!-- FORM 4 -->
+
+                    <div class="pdfform">
+
+                <h1 style="color: white;  font-size: 15px; padding-top: 7px;">DEPARTMENT</h1>
+            </div>
+
+        <table>
+                    <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">DEPARTMENT NAME:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">DEPARTMENT'S HEAD NAME:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                        
+                  
+                          <tr>
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.department }}</td>
+                           
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.head_name }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+
+                        <thead >
+                        <tr class="thead">
+                            
+                     
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">DEPARTMENT'S HEAD NUMBER:</th>
+                      
+                        <th style="color: white; padding-top: 7px; font-size: 12px;">DATE JOINED:</th>
+                        
+                      
+   
+                        </tr>
+                    </thead>
+
+                     <tbody>
+                        
+                  
+                          <tr>
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.head_number }}</td>
+                           
+                            <td>  <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ church.registration_date }}</td>
+                           </tr>
+                                     
+                        </tbody>
+
+                      
+                  
+        
+                </table>
+
+</body>
+</html>

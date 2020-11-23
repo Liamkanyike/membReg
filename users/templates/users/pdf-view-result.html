@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Output</title>
+	<title></title>
+	<style type="text/css">
+@page{
+    size:"A4";
+    margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+
+.pdfform{
+
+
+		background-color: #2980B9 !important;
+		padding:8px 3px;
+		text-align: center;
+		
+}
+.thead{
+
+		background-color: #c1c1c1 !important;
+		padding-top: 5px 0px;
+		
+}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+
+    	{% if church.document %}
+		  <object data="{{ church.document.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document2 %}
+		  <object data="{{ church.document2.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document3 %}
+		  <object data="{{ church.document3.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document4 %}
+		  <object data="{{ church.document4.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document5 %}
+		  <object data="{{ church.document5.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document6 %}
+		  <object data="{{ church.document6.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document7 %}
+		  <object data="{{ church.document7.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document8 %}
+		  <object data="{{ church.document8.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+
+		{% if church.document9 %}
+		  <object data="{{ church.document9.path }}" type="application/pdf" name="document" sizes="A4" >
+		{% endif %}
+</div>
+		
+</body>
+
+</html>

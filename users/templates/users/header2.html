@@ -1,0 +1,89 @@
+{% load static %}
+
+  <div class="page-wrapper">
+             <!-- HEADER DESKTOP-->
+        <header class="header-desktop4">
+            <div class="container">
+                <div class="header4-wrap">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="{% static 'img/viclogo.png' %}" width="150px" height="40%" alt="VictoryChurch" />
+                        </a>
+                    </div>
+                            <div class="header__navbar">
+                        <ul class="list-unstyled">
+                        
+                            <li>
+                                <a href="#">
+                                  
+                                    <span class="bot-line"></span></a>
+                            </li>
+                            <li>
+                                <a href="table.html">
+                                    
+                                    <span class="bot-line"></span></a>
+                            </li>
+                            <li class="has-sub">
+                                <a href="/view">
+                                   
+                                    <span class="bot-line"></span>Churches</a>
+                          
+                            </li>
+                            <li class="has-sub">
+                                <a href="/logout">
+                                    
+                                    <span class="bot-line"></span>Logout</a>
+                            
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER DESKTOP -->
+
+        <!-- WELCOME-->
+        <section class="welcome2 p-t-40 p-b-55">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="au-breadcrumb3">
+                            <div class="au-breadcrumb-left">
+                                <span class="au-breadcrumb-span">You are here:</span>
+                                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    <li class="list-inline-item active">
+                                        <a href="/dashboard">Home</a>
+                                    </li>
+                                    <li class="list-inline-item seprate">
+                                        <span>/</span>
+                                    </li>
+                                    <li class="list-inline-item">Dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="welcome2-inner m-t-60">
+                            <div class="welcome2-greeting">
+                                <span> <h1 class="title-6">Church Registration System</h1></span>
+                                <p></p>
+                            </div>
+                            <form class="form-header form-header2" action="{% url 'search' %}">
+                                <input class="au-input au-input--w435" type="text" name="q" placeholder="Search by phone or surname...">
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WELCOME-->
+
+
+
+     
+      
